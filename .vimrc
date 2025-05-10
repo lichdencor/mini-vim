@@ -8,7 +8,6 @@ filetype plugin indent on
 set number
 set tabstop=4 shiftwidth=4 expandtab
 
-
 " ====== VIMPLUGS ===========
 " Plugin setup
 call plug#begin ('~/.vim/plugged')
@@ -57,11 +56,10 @@ nnoremap <C-f> :Rg<CR>
 " ==========Linting =============
 
 let g:ale_enable = 1
-set omnifunc=ale#completion#OmniFunc
-let g:ale_change_sign_column_color = 1
-let g:ale_completion_enabled = 1
+set omnifunc=lsp#complete
+let g:ale_completion_enabled = 0
 let g:ale_completion_autoimport = 1
-let g:ale_disable_lsp = 0
+let g:ale_disable_lsp = 1
 
 let g:ale_fix_on_save = 1
 
@@ -101,11 +99,11 @@ set completeopt=menuone,noinsert,noselect
 " =========== LSP ===============
 
 let g:lsp_diagnostics_enabled = 0
-let g:lsp_log_verbose = 1
+let g:lsp_log_verbose = 0
 let g:lsp_log_file = expand('~/.vim/lsp.log')
 
 "typescript
-if executable('tyoescript-language-server')
+if executable('typescript-language-server')
     au User lsp_setup call lsp#register_server({
                 \'name':'ts-lsp',
                 \'cmd':{server_info->['typescript-language-server', '--stdio']},
@@ -149,4 +147,3 @@ endif
 
 " Ensure .ino files get correct filetype
 au BufRead,BufNewFile *.ino set filetype=arduino
-
