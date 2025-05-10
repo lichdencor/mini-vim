@@ -69,7 +69,7 @@ Minimal yet powerful Vim configuration with essential development tools: navigat
 ## Notes
 
 - ALE is configured to fix files on save.
-- LSP logging is enabled: see `~/.vim/lsp.log`
+- LSP logging is configured but disabled: see `~/.vim/lsp.log`
 - Arduino LSP support requires:
   - `arduino-language-server`
   - `arduino-cli`
